@@ -53,7 +53,7 @@ public class SQLClientDAO  implements ClientDAO {
 				
 				System.out.println("requête executée");
 			
-				
+				return cli;
 			}
 		
 			

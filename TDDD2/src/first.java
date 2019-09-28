@@ -3,6 +3,12 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import dao.*;
+import factory.*;
+import metier.*;
+import listememoire.*;
+
+
 public class first {
 
 		
@@ -10,7 +16,32 @@ public static void main(String[] args) {
 		
 		
 	    System.out.println("-------------Bienvenue dans l'application CPOA TD1-------------------------");
-		start();
+		//start();
+	    
+	    
+	    DAOFactory daos = DAOFactory.getDAOFactory(Persistance.MYSQL);
+	    
+	    ClientPOJO u = daos.getClientDAO().getById(1);
+	    
+	    u.toString();
+	    
+	    
+	    
+	    
+	    
+	   
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
 		
 		
 	}
