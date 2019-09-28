@@ -35,6 +35,7 @@ public class ListeMemoireAbonnementDAO implements AbonnementDAO {
 		
 		String sDate1="31/12/1998";  
 	    Date date1 = null;
+	    
 		try {
 			date1 = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(sDate1);
 		} catch (ParseException e1) {
@@ -44,6 +45,7 @@ public class ListeMemoireAbonnementDAO implements AbonnementDAO {
 	    
 	    String sDate2="31/11/2019";  
 	    Date date2 = null;
+	    
 		try {
 			date2 = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(sDate2);
 		} catch (ParseException e) {
@@ -65,6 +67,7 @@ public class ListeMemoireAbonnementDAO implements AbonnementDAO {
 
 			objet.setId_client(objet.getId_client()+ 1);
 		}
+		
 		boolean ok = this.donnees.add(objet);
 		
 		return ok;

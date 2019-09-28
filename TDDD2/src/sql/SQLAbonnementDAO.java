@@ -41,7 +41,7 @@ public class SQLAbonnementDAO  implements AbonnementDAO {
 			PreparedStatement requete = null;
 			ResultSet res;
 			
-			requete = laConnexion.prepareStatement("select * from Client where id_client =?");			
+			requete = laConnexion.prepareStatement("select * from Abonnement where id_client =?");			
 			requete.setInt(1, id);
 			
 			res = requete.executeQuery();
@@ -145,7 +145,7 @@ public class SQLAbonnementDAO  implements AbonnementDAO {
 		try {
 			
 			
-			requete = laConnexion.prepareStatement("UPDATE Abonnement SET id_revue = ? , date_deb = ?, date_fin = ? WHERE id_client = ?   ");
+			requete = laConnexion.prepareStatement("UPDATE Abonnement SET id_revue =? , date_deb =?, date_fin =? WHERE id_client =?   ");
 			requete.setInt(4, objet.getId_client());
 			requete.setInt(1, objet.getNum_abo());
 			requete.setDate(2, objet.getDatedeb());
