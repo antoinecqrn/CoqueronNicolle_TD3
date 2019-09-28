@@ -15,6 +15,10 @@ public class PeriodicitePOJO{
 		this.libelle = libelle;
 	}
 	
+	public PeriodicitePOJO() {
+		
+	}
+	
 	public PeriodicitePOJO( String libelle) {
 		
 		

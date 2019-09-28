@@ -10,12 +10,16 @@ public class AbonnementPOJO {
 	private Date datedeb;
 	private Date datefin;
 	
-	public AbonnementPOJO(int id_client, int num_abo, Date datedeb, Date datefin) {
+	public AbonnementPOJO(int id_client, int num_abo, Date date, Date date2) {
 		super();
 		this.id_client = id_client;
 		this.num_abo = num_abo;
-		this.datedeb = datedeb;
-		this.datefin = datefin;
+		this.datedeb = date;
+		this.datefin = date2;
+	}
+	
+	public AbonnementPOJO() {
+		
 	}
 
 	public int getId_client() {

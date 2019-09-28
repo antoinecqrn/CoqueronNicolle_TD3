@@ -2,6 +2,7 @@
 package sql;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -31,7 +32,7 @@ public class SQLAbonnementDAO  implements AbonnementDAO {
 	public AbonnementPOJO getById(int id) {
 		// TODO Auto-generated method stub
 		
-		AbonnementPOJO abo = null;
+		AbonnementPOJO abo = new AbonnementPOJO();
 
 		
 		try {
@@ -52,6 +53,10 @@ public class SQLAbonnementDAO  implements AbonnementDAO {
 			while (res.next()) {
 				
 				System.out.println("requête executée");
+				abo.setId_client(res.getInt(1));
+				abo.setNum_abo(res.getInt(2));
+				abo.setDatedeb(res.getDate(3));
+				abo.setDatefin(res.getDate(4));
 			
 				
 			}
@@ -148,8 +153,8 @@ public class SQLAbonnementDAO  implements AbonnementDAO {
 			requete = laConnexion.prepareStatement("UPDATE Abonnement SET id_revue =? , date_deb =?, date_fin =? WHERE id_client =?   ");
 			requete.setInt(4, objet.getId_client());
 			requete.setInt(1, objet.getNum_abo());
-			requete.setDate(2, objet.getDatedeb());
-			requete.setDate(3, objet.getDatefin());
+			requete.setDate(2,  objet.getDatedeb());
+			requete.setDate(3,  objet.getDatefin());
 			
 			requete.executeUpdate(); 
 		

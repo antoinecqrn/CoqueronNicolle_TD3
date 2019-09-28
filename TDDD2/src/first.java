@@ -1,4 +1,6 @@
 import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -7,23 +9,85 @@ import dao.*;
 import factory.*;
 import metier.*;
 import listememoire.*;
+ 
 
 
 public class first {
 
 		
-public static void main(String[] args) {
+public static void main(String[] args) throws ParseException {
 		
 		
 	    System.out.println("-------------Bienvenue dans l'application CPOA TD1-------------------------");
 		//start();
 	    
+	   
+	   
+//------------------------------------------------- TEST DE SQL  ---------------------------------------------------------------------------------
+	    
 	    
 	    DAOFactory daos = DAOFactory.getDAOFactory(Persistance.MYSQL);
 	    
+	    
+//-------------------- TEST DE SQL - CLIENT-GET ---------------------------------------------------------------------------------
+	    
 	    ClientPOJO u = daos.getClientDAO().getById(1);
 	    
-	    u.toString();
+	    System.out.print(u.toString());
+	    
+//-------------------- TEST DE SQL - PERIOD - DELETE  ---------------------------------------------------------------------------------
+	    
+	    PeriodicitePOJO o = daos.getPeriodiciteDAO().getById(45);
+	    
+	    System.out.print(o.toString());
+	    
+	    daos.getPeriodiciteDAO().delete(o);
+	    
+//-------------------- TEST DE SQL - ABO - ADD ET DELETE  ---------------------------------------------------------------------------------
+	    
+	    String sDate1="2019-09-01";  
+	    
+	    LocalDate d1 = LocalDate.parse(sDate1);
+	    
+	   
+	    String sDate2="2019-11-02";  
+	    LocalDate d2 = LocalDate.parse(sDate2);
+	    
+	    
+	    AbonnementPOJO ab = new AbonnementPOJO(2,1, Date.valueOf(d1),Date.valueOf(d2));
+	    daos.getAbonnementDAO().create(ab);
+	    
+	    System.out.print(ab.toString());
+	   
+	    //daos.getAbonnementDAO().delete(ab);
+	    
+	    
+//-------------------- TEST DE SQL - REVUE - UPDATE ---------------------------------------------------------------------------------
+	    
+	    
+	    
+	    RevuePOJO rev2 = new RevuePOJO(1,"Le monde","journal du soir",2.5,"lemonde.jpg",1) ;
+	    
+	    daos.getRevueDAO().update(rev2);
+	    
+	    
+	    System.out.print(rev2.toString());
+	    
+	    
+//-------------------------------------------- TEST DE XML ---------------------------------------------------------------------------------
+	    
+	   DAOFactory daos2 = DAOFactory.getDAOFactory(Persistance.LISTE_MEMOIRE);
+	   
+//-------------------- TEST DE XML - REVUE - ADD ---------------------------------------------------------------------------------
+	    
+	   RevuePOJO p = new RevuePOJO(7,"BBB","exemple",5.5,"vert",1);
+	    		
+	   daos2.getRevueDAO().create(p);
+	    
+	   System.out.print(p.toString());
+	    
+	    
+	    
 	    
 	    
 	    

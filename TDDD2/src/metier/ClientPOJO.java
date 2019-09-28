@@ -25,6 +25,11 @@ public class ClientPOJO {
 		this.city = city;
 		this.country = country;
 	}
+	
+	
+	public ClientPOJO() {
+		
+	}
 
 
 

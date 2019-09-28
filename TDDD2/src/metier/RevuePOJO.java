@@ -20,6 +20,10 @@ public class RevuePOJO {
 		this.visuel = visuel;
 		this.id_periode = id_periode;
 	}
+	
+	public RevuePOJO() {
+		
+	}
 
 
 

@@ -31,7 +31,7 @@ public class SQLRevueDAO  implements RevueDAO {
 	public RevuePOJO getById(int id) {
 		// TODO Auto-generated method stub
 		
-		RevuePOJO rev = null;
+		RevuePOJO rev = new RevuePOJO();
 
 		
 		try {
@@ -52,6 +52,15 @@ public class SQLRevueDAO  implements RevueDAO {
 			while (res.next()) {
 				
 				System.out.println("requête executée");
+				
+				rev.setId_revue(res.getInt(1));
+				rev.setTitle(res.getString(2));
+				rev.setDescription(res.getString(3));
+				rev.setTarifnum(res.getDouble(4));
+				rev.setVisuel(res.getString(5));
+				rev.setId_periode(res.getInt(6));
+				
+				
 			
 				
 			}
@@ -151,7 +160,7 @@ public class SQLRevueDAO  implements RevueDAO {
 
 		try {
 			
-			requete = laConnexion.prepareStatement("UPDATE titre=?, description=?, tarif_numero=?, visuel=?, id_periodicite=? WHERE id_revue =?");
+			requete = laConnexion.prepareStatement("UPDATE Revue SET titre=?, description=?, tarif_numero=?, visuel=?, id_periodicite=? WHERE id_revue =?");
 			
 			requete.setInt(6,objet.getId_revue());
 			requete.setString(1, objet.getTitle());

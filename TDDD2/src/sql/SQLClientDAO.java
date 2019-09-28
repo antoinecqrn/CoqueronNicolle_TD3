@@ -31,8 +31,8 @@ public class SQLClientDAO  implements ClientDAO {
 	public ClientPOJO getById(int id) {
 		// TODO Auto-generated method stub
 		
-		ClientPOJO cli = null;
-
+	
+		ClientPOJO cli = new ClientPOJO();
 		
 		try {
 			
@@ -52,8 +52,17 @@ public class SQLClientDAO  implements ClientDAO {
 			while (res.next()) {
 				
 				System.out.println("requête executée");
-			
-				return cli;
+				
+	
+				cli.setId_client(res.getInt(1));
+				cli.setNom(res.getString(2));
+				cli.setPrenom(res.getString(3));
+				cli.setNum_rue(res.getString(4));
+				cli.setRue(res.getString(5));
+				cli.setCp(res.getString(6));
+				cli.setCity(res.getString(7));
+				cli.setCountry(res.getString(8));
+				
 			}
 		
 			

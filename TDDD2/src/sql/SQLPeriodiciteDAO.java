@@ -28,7 +28,7 @@ public class SQLPeriodiciteDAO  implements PeriodiciteDAO {
 	public PeriodicitePOJO getById(int id) {
 		// TODO Auto-generated method stub
 		
-		PeriodicitePOJO period = null;
+		PeriodicitePOJO period = new PeriodicitePOJO();
 
 		
 		try {
@@ -50,11 +50,8 @@ public class SQLPeriodiciteDAO  implements PeriodiciteDAO {
 				
 				System.out.println("requête executée");
 				
-				int noperiod = res.getInt(1);
-				String libelle = res.getString(2);
-				
-				System.out.println(noperiod);
-				System.out.println(libelle);
+				 period.setId_periode(res.getInt(1));
+				 period.setLibelle(res.getString(2));
 				
 				
 			}
@@ -190,6 +187,7 @@ public class SQLPeriodiciteDAO  implements PeriodiciteDAO {
 	@Override
 	public boolean delete(PeriodicitePOJO objet) {
 		// TODO Auto-generated method stub
+		
 		Connection laConnexion = Connexion.creeConnexion();
 		
 		PreparedStatement requete = null;
@@ -201,16 +199,18 @@ public class SQLPeriodiciteDAO  implements PeriodiciteDAO {
 			requete = laConnexion.prepareStatement("delete from Periodicite where id_periodicite=?");			
 			requete.setInt(1, objet.getId_periode());
 			
-		
-
-				
-		ResultSet res;
+			requete.executeUpdate();
+	   			
+		    ResultSet res;
 		
 
 			
 			res = requete.executeQuery("select id_periodicite, libelle from Periodicite");
+		
+			System.out.print("row deleted");
 			
 			if (res.rowDeleted()) {
+				
 				
 				return true;
 			}
