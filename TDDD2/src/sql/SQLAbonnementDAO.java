@@ -109,11 +109,7 @@ public class SQLAbonnementDAO  implements AbonnementDAO {
 	
 			
 			res = requete.executeQuery("select * from Abonnement");
-			
-			if (res.rowInserted()) {
-				return true;
-			}
-			
+
 			if (res != null)
 				res.close();
 			
@@ -166,10 +162,7 @@ public class SQLAbonnementDAO  implements AbonnementDAO {
 			
 			res = requete.executeQuery("select * from Abonnement");
 			
-			if (res.rowUpdated()) {
-				
-				return true; 
-			}
+
 			
 			if (res != null)
 				res.close();
@@ -211,11 +204,7 @@ public class SQLAbonnementDAO  implements AbonnementDAO {
 
 			
 			res = requete.executeQuery("select * from Abonnement");
-			
-			if (res.rowDeleted()) {
-				
-				return true;
-			}
+		
 
 			if (res != null)
 				res.close();

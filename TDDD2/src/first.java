@@ -35,11 +35,15 @@ public static void main(String[] args) throws ParseException {
 	    
 	    System.out.print(u.toString());
 	    
+	    System.out.println("------------------------------------");
+	    
 //-------------------- TEST DE SQL - PERIOD - DELETE  ---------------------------------------------------------------------------------
 	    
-	    PeriodicitePOJO o = daos.getPeriodiciteDAO().getById(45);
+	    PeriodicitePOJO o = daos.getPeriodiciteDAO().getById(4);
 	    
 	    System.out.print(o.toString());
+	    
+	    System.out.println("------------------------------------");
 	    
 	    daos.getPeriodiciteDAO().delete(o);
 	    
@@ -54,12 +58,14 @@ public static void main(String[] args) throws ParseException {
 	    LocalDate d2 = LocalDate.parse(sDate2);
 	    
 	    
-	    AbonnementPOJO ab = new AbonnementPOJO(2,1, Date.valueOf(d1),Date.valueOf(d2));
+	    AbonnementPOJO ab = new AbonnementPOJO(4,1, Date.valueOf(d1),Date.valueOf(d2));
 	    daos.getAbonnementDAO().create(ab);
 	    
 	    System.out.print(ab.toString());
+	    
+	    System.out.println("------------------------------------");
 	   
-	    //daos.getAbonnementDAO().delete(ab);
+	    daos.getAbonnementDAO().delete(ab);
 	    
 	    
 //-------------------- TEST DE SQL - REVUE - UPDATE ---------------------------------------------------------------------------------
@@ -73,10 +79,12 @@ public static void main(String[] args) throws ParseException {
 	    
 	    System.out.print(rev2.toString());
 	    
+	    System.out.println("------------------------------------");
 	    
 //-------------------------------------------- TEST DE XML ---------------------------------------------------------------------------------
 	    
 	   DAOFactory daos2 = DAOFactory.getDAOFactory(Persistance.LISTE_MEMOIRE);
+	   System.out.println("----------------X M L --------------------");
 	   
 //-------------------- TEST DE XML - REVUE - ADD ---------------------------------------------------------------------------------
 	    

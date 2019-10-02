@@ -120,9 +120,7 @@ public class SQLClientDAO  implements ClientDAO {
 			
 			res = requete.executeQuery("select * from Client");
 			
-			if (res.rowInserted()) {
-				return true;
-			}
+
 			
 			if (res != null)
 				res.close();
@@ -182,10 +180,6 @@ public class SQLClientDAO  implements ClientDAO {
 			
 			res = requete.executeQuery("select * from Revue");
 			
-			if (res.rowUpdated()) {
-				
-				return true; 
-			}
 			
 			if (res != null)
 				res.close();
@@ -228,10 +222,6 @@ public class SQLClientDAO  implements ClientDAO {
 			
 			res = requete.executeQuery("select * from Revue");
 			
-			if (res.rowDeleted()) {
-				
-				return true;
-			}
 
 			if (res != null)
 				res.close();

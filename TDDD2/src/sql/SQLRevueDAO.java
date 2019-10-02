@@ -121,9 +121,7 @@ public class SQLRevueDAO  implements RevueDAO {
 			
 			res = requete.executeQuery("select * from Revue");
 			
-			if (res.rowInserted()) {
-				return true;
-			}
+
 			
 			if (res != null)
 				res.close();
@@ -179,11 +177,7 @@ public class SQLRevueDAO  implements RevueDAO {
 			
 			res = requete.executeQuery("select * from Revue");
 			
-			if (res.rowUpdated()) {
-				
-				return true; 
-			}
-			
+
 			if (res != null)
 				res.close();
 			
@@ -227,10 +221,7 @@ public class SQLRevueDAO  implements RevueDAO {
 			
 			res = requete.executeQuery("select * from Revue");
 			
-			if (res.rowDeleted()) {
-				
-				return true;
-			}
+	
 
 			if (res != null)
 				res.close();

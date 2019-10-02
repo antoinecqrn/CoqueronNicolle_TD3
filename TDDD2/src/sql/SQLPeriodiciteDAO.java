@@ -106,9 +106,7 @@ public class SQLPeriodiciteDAO  implements PeriodiciteDAO {
 			
 			res = requete.executeQuery("select * from Periodicite");
 			
-			if (res.rowInserted()) {
-				return true;
-			}
+		
 			
 			if (res != null)
 				res.close();
@@ -160,11 +158,7 @@ public class SQLPeriodiciteDAO  implements PeriodiciteDAO {
 			
 			res = requete.executeQuery("select id_periodicite, libelle from Periodicite");
 			
-			if (res.rowUpdated()) {
-				
-				return true; 
-			}
-			
+
 			if (res != null)
 				res.close();
 			
@@ -209,11 +203,7 @@ public class SQLPeriodiciteDAO  implements PeriodiciteDAO {
 		
 			System.out.print("row deleted");
 			
-			if (res.rowDeleted()) {
-				
-				
-				return true;
-			}
+
 
 			if (res != null)
 				res.close();
