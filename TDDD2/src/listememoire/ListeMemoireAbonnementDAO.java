@@ -105,7 +105,7 @@ public class ListeMemoireAbonnementDAO implements AbonnementDAO {
 	}
 
 	@Override
-	public AbonnementPOJO getById(int id) {
+	public AbonnementPOJO getById(int id1,int id2) {
 		
 
 		String sDate1="31/12/1998";  
@@ -125,8 +125,10 @@ public class ListeMemoireAbonnementDAO implements AbonnementDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}  
+		
+		
 		// Ne fonctionne que si l'objet métier est bien fait...
-		int idx = this.donnees.indexOf(new AbonnementPOJO(id,1,date1,date2));
+		int idx = this.donnees.indexOf(new AbonnementPOJO(id1, id2,date1,date2));
 		if (idx == -1) {
 			throw new IllegalArgumentException("Aucun objet ne possède cet identifiant");
 		} else {

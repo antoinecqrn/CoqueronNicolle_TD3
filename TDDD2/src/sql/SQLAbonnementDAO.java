@@ -29,7 +29,7 @@ public class SQLAbonnementDAO  implements AbonnementDAO {
 
 
 	@Override
-	public AbonnementPOJO getById(int id) {
+	public AbonnementPOJO getById(int id1, int id2) {
 		// TODO Auto-generated method stub
 		
 		AbonnementPOJO abo = new AbonnementPOJO();
@@ -42,8 +42,9 @@ public class SQLAbonnementDAO  implements AbonnementDAO {
 			PreparedStatement requete = null;
 			ResultSet res;
 			
-			requete = laConnexion.prepareStatement("select * from Abonnement where id_client =?");			
-			requete.setInt(1, id);
+			requete = laConnexion.prepareStatement("select * from Abonnement where id_client =? and id_revue=? ");			
+			requete.setInt(1, id1);
+			requete.setInt(2, id2);
 			
 			res = requete.executeQuery();
 			
@@ -146,11 +147,11 @@ public class SQLAbonnementDAO  implements AbonnementDAO {
 		try {
 			
 			
-			requete = laConnexion.prepareStatement("UPDATE Abonnement SET id_revue =? , date_deb =?, date_fin =? WHERE id_client =?   ");
-			requete.setInt(4, objet.getId_client());
-			requete.setInt(1, objet.getNum_abo());
-			requete.setDate(2,  objet.getDatedeb());
-			requete.setDate(3,  objet.getDatefin());
+			requete = laConnexion.prepareStatement("UPDATE Abonnement SET  date_deb =?, date_fin =? WHERE id_client =? AND id_revue =?  ");
+			requete.setInt(3, objet.getId_client());
+			requete.setInt(4, objet.getNum_abo());
+			requete.setDate(1,  objet.getDatedeb());
+			requete.setDate(2,  objet.getDatefin());
 			
 			requete.executeUpdate(); 
 		
@@ -195,8 +196,9 @@ public class SQLAbonnementDAO  implements AbonnementDAO {
 		try {
 
 
-			requete = laConnexion.prepareStatement("delete from Abonnement where id_client=?");
+			requete = laConnexion.prepareStatement("delete from Abonnement where id_client=? and id_revue = ");
 			requete.setInt(1, objet.getId_client());
+			requete.setInt(2,objet.getNum_abo());
 			requete.executeUpdate(); 
 				
 		ResultSet res;
