@@ -1,5 +1,7 @@
 package metier;
 
+import java.util.ArrayList;
+
 public class PeriodicitePOJO{
 	
 	private int id_periode;
@@ -16,6 +18,25 @@ public class PeriodicitePOJO{
 	}
 	
 	public PeriodicitePOJO() {
+		
+	}
+	
+	
+	public PeriodicitePOJO(ArrayList <String> array) {
+		
+		try {
+			
+			if (array.size() == 2) {
+			this.id_periode = Integer.parseInt(array.get(1));
+			this.libelle = array.get(2);
+			
+			}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 	}
 	

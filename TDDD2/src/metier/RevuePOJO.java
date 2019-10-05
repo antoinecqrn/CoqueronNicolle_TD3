@@ -1,5 +1,7 @@
 package metier;
 
+import java.util.ArrayList;
+
 public class RevuePOJO {
 	
 	private int id_revue;
@@ -12,7 +14,7 @@ public class RevuePOJO {
 	
 	
 	public RevuePOJO(int id_revue, String title, String description, double tarifnum, String visuel, int id_periode) {
-		super();
+		
 		this.id_revue = id_revue;
 		this.title = title;
 		this.description = description;
@@ -23,6 +25,24 @@ public class RevuePOJO {
 	
 	public RevuePOJO() {
 		
+	}
+	
+	public RevuePOJO(ArrayList <String> array) {
+		
+		try {
+			if (array.size()==6) {
+			this.id_revue = Integer.parseInt(array.get(1));
+			this.title = array.get(2);
+			this.description = array.get(3);
+			this.tarifnum = Double.parseDouble(array.get(4));
+			this.visuel = array.get(5);
+			this.id_periode = Integer.parseInt(array.get(6));
+			
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 

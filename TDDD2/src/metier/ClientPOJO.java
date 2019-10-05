@@ -1,5 +1,7 @@
 package metier;
 
+import java.util.ArrayList;
+
 public class ClientPOJO {
 	
 	private int id_client;
@@ -15,7 +17,7 @@ public class ClientPOJO {
 	
 	public ClientPOJO(int id_client, String nom, String prenom, String num_rue, String rue, String cp, String city,
 			String country) {
-		super();
+		
 		this.id_client = id_client;
 		this.nom = nom;
 		this.prenom = prenom;
@@ -29,6 +31,30 @@ public class ClientPOJO {
 	
 	public ClientPOJO() {
 		
+	}
+	
+	
+	public ClientPOJO (ArrayList <String> array) {
+		
+		try {
+			if (array.size()==8) {
+				
+				this.id_client = Integer.parseInt(array.get(1));
+				this.nom = array.get(2);
+				this.prenom = array.get(3);
+				this.num_rue = array.get(4);
+				this.rue = array.get(5);
+				this.cp = array.get(6);
+				this.city = array.get(7);
+				this.country = array.get(8);
+				
+
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("erreur nombre d'attributs"); 
+		}
 	}
 
 

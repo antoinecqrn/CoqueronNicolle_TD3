@@ -2,7 +2,11 @@ package metier;
 
 import java.sql.Date;
 
-public class AbonnementPOJO {
+import java.util.ArrayList;
+import metier.DateVerif;
+
+
+public class AbonnementPOJO implements DateVerif{
 	
 	
 	private int id_client;
@@ -11,7 +15,7 @@ public class AbonnementPOJO {
 	private Date datefin;
 	
 	public AbonnementPOJO(int id_client, int num_abo, Date date, Date date2) {
-		super();
+		
 		this.id_client = id_client;
 		this.num_abo = num_abo;
 		this.datedeb = date;
@@ -21,6 +25,34 @@ public class AbonnementPOJO {
 	public AbonnementPOJO() {
 		
 	}
+	
+
+	public AbonnementPOJO (ArrayList <String> array) {
+		
+		try {
+			
+			if (array.size()==4) {
+				
+			 this.id_client = Integer.parseInt(array.get(1));
+			 this.num_abo = Integer.parseInt(array.get(2));
+			 this.datedeb = java.sql.Date.valueOf(DateVerif.DateVerif(array.get(3)));
+			 this.datefin = java.sql.Date.valueOf(DateVerif.DateVerif(array.get(4)));
+			  
+			
+			}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("erreur nombre d'attributs"); 
+			
+		}
+		
+		
+		
+		
+	}
+
 
 	public int getId_client() {
 		return id_client;
